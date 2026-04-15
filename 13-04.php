@@ -29,14 +29,14 @@ echo('<br>');
 //array
 
 $nomes = ["ti101", true, 100];
-print_r($nomes)
+print_r($nomes);
 $nomes = ["nome"=>"Wilton",
           "ID"=>"101",
           "CPF"=>"123456"];
 
 echo '<pre>';
 print_r ($nomes);
-echo '</pre>'
+echo '</pre>';
 
 $nomes =[];
 //=> "aponta para" associar uma chave com um valor
