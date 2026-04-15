@@ -1,81 +1,112 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+<?php
 
-    <?php
-    //PHP
-echo " <h1> Promando com PHP </h1>";
+// Trabalhando com datas no PHP
+echo date("d/m/Y");
+$data = date("d/m/Y");
+echo '<br>';
+echo ("Data de hoje = ".$data);
+/*
+| Código | Significado     | Exemplo |
+| ------ | --------------- | ------- |
+| d      | dia             | 15      |
+| m      | mês             | 04      |
+| Y      | ano (4 dígitos) | 2026    |
+| H      | hora (24h)      | 15      |
+| i      | minutos         | 30      |
+| s      | segundos        | 45      |*/
 
-// $nome;
-// $nome = "Wilton";
+echo '<br>';
+date_default_timezone_set("America/Sao_Paulo");
+echo date("d/m/Y H:i:s");
 
-// echo $nome;
+//---------------------------------------------------------
 
-// ------------------------------------------------------------------------
+//forma moderna de trabalhar com date
+$data = new DateTime();
+echo ("data atual = ".$data);
 
-// $valor = 10;
-// $nome = "Fernando Diniz";
-// $preco = 200.00;
+echo $data->format("d/m/Y");        
 
-// echo ("Valores das variaveia = ".".".$valor." ". $nome." ".$preco)
+//---------------------------------------------------------
 
-// ------------------------------------------------------------------------
+// Ver diferença de dias
+$data1 = new DateTime("2026-04-01");
 
-//  $verdadeiro = true;
-//  $falso = false;
-//  $inteiro = "1";
-//  $decimal = 1.5;
-//  $nome = "Wilton";
-//  $frase = "PHP É UMA LINGUAGEM PARA WEB";
-//  $separador = "***************************";
+$data2 = new DateTime("2026-04-15");
 
-//  echo $verdadeiro. '<br>';
-// echo gettype($verdadeiro). '<br>';
-// echo gettype($falso). '<br>';
-// echo gettype($inteiro). '<br>';
-// echo gettype($decimal). '<br>';
-// echo gettype($nome). '<br>';
-// echo gettype($frase). '<br>';
-// echo gettype($separador). '<br>';
+$diferenca = $data1->diff($data2);
 
-// ------------------------------------------------------------------------
+echo $diferenca->days." dias ";
 
-//operações 
-// $num = 10;
-// $num2 = 20;
+$dataNascimento = new DateTime("2008-11-24");
 
-// $resultado = $num+$num2;
-// echo("O valor da Soma é = " .$resultado. '<br>' );
+$hoje = new DateTime();
 
-// echo("O valor da Subtração é = " .$resultado = $num-$num2. '<br>' );
+$idade = $hoje->diff($dataNascimento);
 
-// echo("O valor da Divisão é = " .$resultado = $num/$num2. '<br>' );
+echo " Idade: ".$idade->y ." anos ";
 
-// echo("O valor da Multiplicação é = " .$resultado = $num*$num2. '<br>' );
+//---------------------------------------------------------
 
-// echo("O valor da Resto da divisão é = " .$resultado = $num%$num2. '<br>' );
+//string
 
-// echo("O valor da Potencia é = " .$resultado = $num**$num2. '<br>' );
-
-// ------------------------------------------------------------------------
-
-//Precedencia = () > ** > / % *> + -
-// echo 2+2*5+(9/3)/(4+2**3);
-
-// ------------------------------------------------------------------------
-
-// $nome = "Wilton";
-// echo 'Olá, $nome';
+//strlen() ---> tamanho da string
 
 
-$nome = "Wilton";
-//
-echo "O valor da variavel '$nome' é = {$nome}";
+$nome = "  diogo";
+echo strlen($nome);
+echo '<br>';
+
+echo strtoupper($nome);
+
+echo '<br>';
+echo strtolower($nome);
+
+echo '<br>';
+echo ucfirst($nome);
+
+echo '<br>';
+echo ucwords($nome);
+
+echo '<br>';
+echo trim($nome);
+
+//strpos() ---> procurar texto
+echo strpos("Programando com PHP", "PHP");
+
+$texto = "PHP,HTML,CSS";
+echo '<br>';
+$array = explode(",",$texto);
+echo '<br>';
+
+print_r($array);
+
+//ATIVIDADE
+//explode() ---> transformar em array
+$texto = "PHP, é, uma, linguagem, de, programação, usada, principalmente, para, desenvolver, sites, e, 
+ sistemas, web, O, nome, PHP, significa, Hypertext, Preprocessor, Ela, é, uma, linguagem, do, lado, do, servidor, ou, seja, o, código, é, executado, 
+no, servidor, onde, o, site, está, hospedado, e, não, diretamente, no, navegador, do, usuário";
+ echo '<br>';
+ $array = explode(",",$texto);
+echo '<br>';
+
+print_r($array);
+
+//implode() ---> juntar array em string
+$array = ["PHP,HTML,CSS"];
+echo implode ("-", $array);
+
+$nome = "  diogo souza  ";
+echo "Original:$nome <br>";
+
+$nome = trim($nome);
+echo "Sem espaços: $nome <br>";
+
+$nome = ucwords($nome);
+echo "Formatando: $nome <br>";
+
+echo "Total de letras: ". strlen($nome);
+
 ?>
 
 </body>
