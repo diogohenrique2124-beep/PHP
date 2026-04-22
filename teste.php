@@ -1,4 +1,5 @@
 <?php
+// conexão.php
 
-echo "OLÁ MUNDO";
-?>
+$nomeSistema = "Sistema TI101";
+$dataHoje = date("d/m/Y");
